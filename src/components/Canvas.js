@@ -11,7 +11,7 @@ function Canvas({ store }) {
           id={box.id}
           key={index}
           color={box.color}
-          left={box.left}
+          left={box.left+index*100}
           top={box.top}
           width={box.width}
           height={box.height}
