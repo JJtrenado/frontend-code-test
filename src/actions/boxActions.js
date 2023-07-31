@@ -16,4 +16,8 @@ export const addBox = () => {
 
 export const removeBox = () => {
   store.removeBox();
-}  
+}
+
+export const selectBox = (id) => {
+  store.selectBox(id);
+}

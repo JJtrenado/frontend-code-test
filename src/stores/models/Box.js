@@ -7,9 +7,15 @@ const BoxModel = types
     height: 100,
     color: "#FFF000",
     left: 200,
-    top: 100
+    top: 100,
+    selected: false,
   })
   .views(self => ({}))
-  .actions(self => ({}));
+  .actions(self => ({
+    setSelected(selected) {
+      self.selected = selected;
+      console.log(self.selected);
+    }
+  }));
 
 export default BoxModel;

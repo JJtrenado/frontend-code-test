@@ -12,6 +12,13 @@ const MainStore = types
       removeBox(id) {
         self.boxes.pop();
       },
+      selectBox(id) {
+        self.boxes.forEach(Box => Box.setSelected(false));
+        const boxToSelect = self.boxes.find(box => box.id === id);
+        if (boxToSelect) {
+          boxToSelect.setSelected(true);
+        }
+      }
   }))
   .views(self => ({}));
 
