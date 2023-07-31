@@ -13,3 +13,7 @@ export const addBox = () => {
 
   store.addBox(box);
 }
+
+export const removeBox = () => {
+  store.removeBox();
+}  
