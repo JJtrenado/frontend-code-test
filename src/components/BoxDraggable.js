@@ -1,9 +1,11 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { selectBox } from "../actions/boxActions";
 
 function BoxDraggable(props) {
   return (
     <div
+      onClick={() => selectBox(props.id)}
       id={props.id}
       className="box"
       style={{

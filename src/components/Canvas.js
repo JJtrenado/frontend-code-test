@@ -2,7 +2,6 @@ import React from "react";
 
 import { observer } from "mobx-react";
 import Box from "../components/Box";
-import { selectBox } from "../actions/boxActions";
 
 function Canvas({ store }) {
 
@@ -13,19 +12,17 @@ function Canvas({ store }) {
         const leftAdjustment = (index % 6) * 200;
 
         return (
-          <div onClick={() => selectBox(box.id)}>
-            <Box
-              id={box.id}
-              key={index}
-              color={box.color}
-              left={leftAdjustment}
-              top={box.top + topAdjustment}
-              width={box.width}
-              height={box.height}
-              box={box}
-              selected={box.selected}
-            />
-          </div>
+          <Box
+            id={box.id}
+            key={index}
+            color={box.color}
+            left={leftAdjustment}
+            top={box.top + topAdjustment}
+            width={box.width}
+            height={box.height}
+            box={box}
+            selected={box.selected}
+          />
         );
       })}
     </div>
