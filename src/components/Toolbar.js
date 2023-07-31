@@ -8,7 +8,7 @@ function Toolbar() {
       <button onClick={addBox} >Add Box</button>
       <button onClick={removeBox} >Remove Box</button>
       <input type="color" />
-      <span>No boxes selected</span>
+      <span id={'selectMessage'} >No boxes selected</span>
     </div>
   );
 }

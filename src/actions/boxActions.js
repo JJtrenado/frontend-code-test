@@ -20,4 +20,9 @@ export const removeBox = () => {
 
 export const selectBox = (id) => {
   store.selectBox(id);
+  
+  const selectMessage = document.getElementById('selectMessage');
+  if (selectMessage) {
+    selectMessage.textContent = 'Box ' + id + ' selected';
+  }
 }
