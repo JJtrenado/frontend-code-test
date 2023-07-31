@@ -14,8 +14,8 @@ export const addBox = () => {
   store.addBox(box);
 }
 
-export const removeBox = () => {
-  store.removeBox();
+export const removeLastBox = () => {
+  store.removeLastBox();
 }
 
 export const selectBox = (id) => {
@@ -25,4 +25,8 @@ export const selectBox = (id) => {
   if (selectMessage) {
     selectMessage.textContent = 'Box ' + id + ' selected';
   }
+}
+
+export const removeSelectedBox = () => {
+  store.removeSelectedBox();
 }
