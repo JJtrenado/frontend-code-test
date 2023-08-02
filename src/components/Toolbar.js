@@ -1,6 +1,6 @@
 import React from "react";
-import {addBox, removeLastBox, removeSelectedBoxes, changeColor} from "../actions/boxActions";
-import {Undo, Redo} from "../actions/historyActions";
+import {addBox, removeLastBox, removeSelectedBoxes, changeColor} from "../actions/BoxActions";
+import {Undo, Redo} from "../actions/HistoryActions";
 
 
 function Toolbar() {

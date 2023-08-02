@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { observer } from "mobx-react";
-import { selectBox } from "../../actions/boxActions";
+import { selectBox } from "../../actions/BoxActions";
 import InteractDraggable from "./Interact";
 
 function BoxDraggable(props) {
