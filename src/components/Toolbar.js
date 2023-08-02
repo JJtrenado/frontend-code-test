@@ -1,5 +1,5 @@
 import React from "react";
-import {addBox, removeLastBox, removeSelectedBox} from "../actions/boxActions";
+import {addBox, removeLastBox, removeSelectedBox, changeColor} from "../actions/boxActions";
 
 
 function Toolbar() {
@@ -8,7 +8,7 @@ function Toolbar() {
       <button onClick={addBox} >Add Box</button>
       <button onClick={removeLastBox} >Remove last Box</button>
       <button onClick={removeSelectedBox} >Remove selected Box</button>
-      <input type="color" />
+      <input type="color" onChange={changeColor}/>
       <span id={'selectMessage'} >No boxes selected</span>
     </div>
   );
