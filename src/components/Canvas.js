@@ -8,16 +8,13 @@ function Canvas({ store }) {
   return (
     <div className="canva">
       {store.boxes.map((box, index) => {
-        const topAdjustment = index >= 6 ? Math.floor(index / 6) * 100 : 0;
-        const leftAdjustment = (index % 6) * 200;
-
         return (
           <Box
             id={box.id}
             key={index}
             color={box.color}
-            left={leftAdjustment}
-            top={box.top + topAdjustment}
+            left={box.left}
+            top={box.top}
             width={box.width}
             height={box.height}
             box={box}
