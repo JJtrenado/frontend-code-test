@@ -1,5 +1,7 @@
 import interact from "interactjs";
 import { transformBoxes } from "../../actions/boxActions";
+import store from "../../stores/MainStore";
+
 
 export default function InteractDraggable (boxRef) {
   const boxElement = boxRef.current;
@@ -15,8 +17,14 @@ export default function InteractDraggable (boxRef) {
     autoScroll: true,
 
     listeners: {
+      start (event) {
+        store.undoHistory.startGroup(() => {})
+      },
       move (event) {
         transformBoxes(event.dx, event.dy);
+      },
+      end (event) {
+        store.undoHistory.stopGroup(() => {})
       }
     }
   });
