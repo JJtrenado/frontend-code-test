@@ -1,7 +1,7 @@
 import interact from "interactjs";
 import { transformBoxes } from "../../actions/boxActions";
 
-export default function InteractDraggable (boxRef, id, left, top) {
+export default function InteractDraggable (boxRef) {
   const boxElement = boxRef.current;
 
   const interactInstance = interact(boxElement).draggable({
