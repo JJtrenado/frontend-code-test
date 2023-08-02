@@ -1,10 +1,13 @@
-import { types } from "mobx-state-tree";
+import { types, onSnapshot, applySnapshot } from "mobx-state-tree";
 import BoxModel from "./models/Box";
+import { UndoManager } from "mst-middlewares"
+
 
 const MainStore = types
   .model("MainStore", {
     boxes: types.array(BoxModel),
-    selectedBoxesCounter: 0
+    selectedBoxesCounter: 0,
+    undoHistory: types.optional (UndoManager, {}),
   })
   .actions(self => ({
       addBox(box) {
@@ -49,10 +52,29 @@ const MainStore = types
         if (selectedBoxes) {
           selectedBoxes.forEach(box => box.setColor(color));
         }
+      },
+
+      saveToLocalStorage() {
+        const snapshot = self.toJSON();
+        localStorage.setItem("mainStoreSnapshot", JSON.stringify(snapshot));
+      },
+  
+      loadFromLocalStorage() {
+        const snapshotJson = localStorage.getItem("mainStoreSnapshot");
+        if (snapshotJson) {
+          const snapshot = JSON.parse(snapshotJson);
+          applySnapshot(self, snapshot);
+        }
       }
   }))
   .views(self => ({}));
 
-const store = MainStore.create();
+  const store = MainStore.create();
+
+  store.loadFromLocalStorage();
+  
+  onSnapshot(store, () => {
+    store.saveToLocalStorage();
+  });
 
 export default store;
