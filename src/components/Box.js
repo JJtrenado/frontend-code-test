@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import BoxDraggable from "./BoxDraggable";
+import BoxDraggable from "./boxDraggable/BoxDraggable";
 
 function Box(props) {
   return (
