@@ -7,7 +7,7 @@ function BoxDraggable(props) {
   const boxRef = useRef(null);
 
   useEffect(() => {
-    InteractDraggable(boxRef, props);
+    InteractDraggable(boxRef);
   }, [props]);
 
   return (
