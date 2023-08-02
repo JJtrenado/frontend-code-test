@@ -36,11 +36,12 @@ const MainStore = types
         self.selectedBoxesCounter = self.boxes.filter(box => box.selected).length;
       },
       
-      transformBox(id, left, top) {
-        const boxToTransform = self.boxes.find(box => box.id === id);
-        if (boxToTransform) {
-          boxToTransform.transform(left, top);
+      transformBoxes(left, top) {
+        const selectedBoxes = self.boxes.filter(box => box.selected);
+        if (selectedBoxes) {
+          selectedBoxes.forEach(box => box.transform(left, top));
         }
+        
       },
       
       changeColor(color) {

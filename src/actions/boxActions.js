@@ -37,8 +37,8 @@ export const selectBox = (id, event) => {
   } 
 }
 
-export const transformBox = (id, left, top) => {
-  store.transformBox(id, left, top);
+export const transformBoxes = (left, top) => {
+  store.transformBoxes(left, top);
 }
 
 export const changeColor = (event) => {

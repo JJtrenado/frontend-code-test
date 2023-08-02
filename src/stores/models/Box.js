@@ -16,8 +16,8 @@ const BoxModel = types
       self.selected = selected;
     },
     transform(left, top) {
-      self.left = left;
-      self.top = top;
+      self.left += left
+      self.top += top
     },
     setColor(color) {
       self.color = color;
