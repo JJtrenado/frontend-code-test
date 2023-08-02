@@ -30,3 +30,12 @@ export const selectBox = (id) => {
 export const removeSelectedBox = () => {
   store.removeSelectedBox();
 }
+
+export const transformBox = (id, left, top) => {
+  store.transformBox(id, left, top);
+}
+
+export const changeColor = (event) => {
+  const color = event.target.value;
+  store.changeColor(color);
+}

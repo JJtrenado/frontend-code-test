@@ -1,6 +1,5 @@
 import { types } from "mobx-state-tree";
 import BoxModel from "./models/Box";
-import { remove } from "mobx";
 
 const MainStore = types
   .model("MainStore", {
@@ -21,10 +20,18 @@ const MainStore = types
         }
       },
       removeSelectedBox() {
-        const selectedBoxIndex = self.boxes.findIndex(box => box.selected === true);
-        console.log(selectedBoxIndex);
-        if (selectedBoxIndex !== -1) {
-          self.boxes.splice(selectedBoxIndex, 1);
+        self.boxes = self.boxes.filter(box => !box.selected);
+      },
+      transformBox(id, left, top) {
+        const boxToTransform = self.boxes.find(box => box.id === id);
+        if (boxToTransform) {
+          boxToTransform.transform(left, top);
+        }
+      },
+      changeColor(color) {
+        const selectedBox = self.boxes.find(box => box.selected);
+        if (selectedBox) {
+          selectedBox.setColor(color);
         }
       }
   }))

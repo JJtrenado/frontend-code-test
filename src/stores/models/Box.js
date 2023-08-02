@@ -14,7 +14,13 @@ const BoxModel = types
   .actions(self => ({
     setSelected(selected) {
       self.selected = selected;
-      console.log(self.selected);
+    },
+    transform(left, top) {
+      self.left = left;
+      self.top = top;
+    },
+    setColor(color) {
+      self.color = color;
     }
   }));
 
