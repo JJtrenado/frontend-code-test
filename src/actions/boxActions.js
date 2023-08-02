@@ -18,6 +18,10 @@ export const removeLastBox = () => {
   store.removeLastBox();
 }
 
+export const removeSelectedBoxes = () => {
+  store.removeSelectedBoxes();
+}
+
 export const selectBox = (id, event) => {
   const selectMessage = document.getElementById('selectMessage');
 
@@ -30,13 +34,7 @@ export const selectBox = (id, event) => {
   else {
     store.selectMultipleBoxes(id);
     if (selectMessage) selectMessage.textContent = store.selectedBoxesCounter + ' boxes selected';
-  }
-
-  
-}
-
-export const removeSelectedBox = () => {
-  store.removeSelectedBox();
+  } 
 }
 
 export const transformBox = (id, left, top) => {
