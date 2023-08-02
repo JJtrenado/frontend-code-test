@@ -18,13 +18,21 @@ export const removeLastBox = () => {
   store.removeLastBox();
 }
 
-export const selectBox = (id) => {
-  store.selectBox(id);
-  
+export const selectBox = (id, event) => {
   const selectMessage = document.getElementById('selectMessage');
-  if (selectMessage) {
-    selectMessage.textContent = 'Box ' + id + ' selected';
+
+  if (!event.ctrlKey) {
+    store.selectOneBox(id, event);
+    const index = store.boxes.findIndex(box => box.id === id);
+    if (selectMessage) selectMessage.textContent = 'Box nº ' + index + ' selected. Use Ctrl for multiple selection';
   }
+  
+  else {
+    store.selectMultipleBoxes(id);
+    if (selectMessage) selectMessage.textContent = store.selectedBoxesCounter + ' boxes selected';
+  }
+
+  
 }
 
 export const removeSelectedBox = () => {

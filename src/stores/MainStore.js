@@ -3,7 +3,8 @@ import BoxModel from "./models/Box";
 
 const MainStore = types
   .model("MainStore", {
-    boxes: types.array(BoxModel)
+    boxes: types.array(BoxModel),
+    selectedBoxesCounter: 0
   })
   .actions(self => ({
       addBox(box) {
@@ -12,12 +13,20 @@ const MainStore = types
       removeLastBox() {
         self.boxes.pop();
       },
-      selectBox(id) {
+      selectOneBox(id) {
         self.boxes.forEach(Box => Box.setSelected(false));
         const boxToSelect = self.boxes.find(box => box.id === id);
         if (boxToSelect) {
           boxToSelect.setSelected(true);
         }
+        self.selectedBoxesCounter = 1;
+      },
+      selectMultipleBoxes(id) {
+        const boxToSelect = self.boxes.find(box => box.id === id);
+        if (boxToSelect) {
+          boxToSelect.setSelected(true);
+        }
+        self.selectedBoxesCounter = self.boxes.filter(box => box.selected).length;
       },
       removeSelectedBox() {
         self.boxes = self.boxes.filter(box => !box.selected);

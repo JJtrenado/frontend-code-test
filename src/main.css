@@ -37,8 +37,10 @@ html,
   top: 0;
   left: 0;
   display: flex;
+  gap: 15px;
 }
 
 .toolbar span {
   color: white;
+  align-self: center;
 }

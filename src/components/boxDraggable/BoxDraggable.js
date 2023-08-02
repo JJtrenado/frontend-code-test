@@ -12,7 +12,8 @@ function BoxDraggable(props) {
 
   return (
     <div
-      onClick={() => selectBox(props.id)}
+      //passing event to more then one box with ctrl key
+      onClick={(event) => selectBox(props.id, event)}
       id={props.id}
       ref={boxRef}
       className="box"
