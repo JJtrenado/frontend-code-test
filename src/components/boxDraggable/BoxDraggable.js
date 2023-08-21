@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { observer } from "mobx-react";
 import { selectBox } from "../../actions/BoxActions";
 import InteractDraggable from "./Interact";
+import { removeSelectedBoxesButtonAvailability } from "../Toolbar/ToolbarAvailability";
 
 function BoxDraggable(props) {
   const boxRef = useRef(null);
@@ -10,10 +11,16 @@ function BoxDraggable(props) {
     InteractDraggable(boxRef);
   }, [props]);
 
+  function handleSelect (event) {
+    selectBox(props.id, event);
+    removeSelectedBoxesButtonAvailability();
+  };
+
+
   return (
     <div
       //passing event to more then one box with ctrl key
-      onMouseDown={(event) => selectBox(props.id, event)}
+      onMouseDown={(event) => handleSelect(event)}
       id={props.id}
       ref={boxRef}
       className="box"

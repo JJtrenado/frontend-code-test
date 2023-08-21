@@ -9,3 +9,13 @@ export const removeLastBoxButtonAvailability = () => {
     removeLastBoxButton.disabled = false;
   }
 }
+
+export const removeSelectedBoxesButtonAvailability = () => {
+  const removeSelectedBoxesButton = document.getElementById('removeSelectedBoxesButton');
+  if (store.selectedBoxesCounter <= 0) {
+    removeSelectedBoxesButton.disabled = true;
+  }
+  else {
+    removeSelectedBoxesButton.disabled = false;
+  }
+}

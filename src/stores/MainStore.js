@@ -38,6 +38,11 @@ const MainStore = types
         }
         self.selectedBoxesCounter = self.boxes.filter(box => box.selected).length;
       },
+
+      deselectAllBoxes() {
+        self.boxes.forEach(Box => Box.setSelected(false));
+        self.selectedBoxesCounter = 0;
+      },
       
       transformBoxes(left, top) {
         const selectedBoxes = self.boxes.filter(box => box.selected);
