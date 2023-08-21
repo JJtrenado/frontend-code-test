@@ -44,7 +44,6 @@ const MainStore = types
         if (selectedBoxes) {
           selectedBoxes.forEach(box => box.transform(left, top));
         }
-        
       },
       
       changeColor(color) {

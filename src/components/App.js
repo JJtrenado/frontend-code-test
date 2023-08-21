@@ -6,6 +6,9 @@ import Toolbar from "./Toolbar";
 import { observer } from "mobx-react";
 
 function App() {
+  // Clearing the history on refresh is necessary to prevent errors with the undo function after a refresh
+  store.undoHistory.clear();
+  
   return (
     <div className="app">
       <Toolbar />
