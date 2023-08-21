@@ -24,17 +24,18 @@ export const removeSelectedBoxes = () => {
 
 export const selectBox = (id, event) => {
   const selectMessage = document.getElementById('selectMessage');
-
-  if (!event.ctrlKey) {
-    store.selectOneBox(id, event);
-    const index = store.boxes.findIndex(box => box.id === id);
-    if (selectMessage) selectMessage.textContent = 'Box nº ' + index + ' selected. Use Ctrl for multiple selection';
+  if (selectMessage){
+    if (!event.ctrlKey) {
+      store.selectOneBox(id, event);
+      const index = store.boxes.findIndex(box => box.id === id);
+      selectMessage.textContent = 'Box nº ' + index + ' selected. Use Ctrl for multiple selection';
+    }
+    
+    else {
+      store.selectMultipleBoxes(id);
+      selectMessage.textContent = store.selectedBoxesCounter + ' boxes selected';
+    } 
   }
-  
-  else {
-    store.selectMultipleBoxes(id);
-    if (selectMessage) selectMessage.textContent = store.selectedBoxesCounter + ' boxes selected';
-  } 
 }
 
 export const transformBoxes = (left, top) => {
