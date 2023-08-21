@@ -7,7 +7,6 @@ export default function InteractDraggable (boxRef) {
   const boxElement = boxRef.current;
 
   const interactInstance = interact(boxElement).draggable({
-    inertia: true,
     modifiers: [
       interact.modifiers.restrictRect({
         restriction: 'parent', // keep the element within the area of it's parent
