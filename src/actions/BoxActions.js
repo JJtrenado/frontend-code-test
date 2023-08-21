@@ -16,10 +16,12 @@ export const addBox = () => {
 
 export const removeLastBox = () => {
   store.removeLastBox();
+  deselectAllBoxes();
 }
 
 export const removeSelectedBoxes = () => {
   store.removeSelectedBoxes();
+  deselectAllBoxes();
 }
 
 export const selectBox = (id, event) => {
@@ -35,6 +37,14 @@ export const selectBox = (id, event) => {
       store.selectMultipleBoxes(id);
       selectMessage.textContent = store.selectedBoxesCounter + ' boxes selected';
     } 
+  }
+}
+
+export const deselectAllBoxes = () => {
+  store.deselectAllBoxes();
+  const selectMessage = document.getElementById('selectMessage');
+  if (selectMessage){
+    selectMessage.textContent = 'No boxes selected';
   }
 }
 
